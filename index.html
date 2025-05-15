@@ -15,7 +15,7 @@
       height: 100%;
     }
 
-    .step-father {
+    .floating-word {
       position: absolute;
       color: #fff;
       font-size: 14px;
@@ -30,7 +30,7 @@
         transform: rotate(0deg) translateY(0px);
       }
       50% {
-        transform: rotate(180deg) translateY(-10px);
+        transform: rotate(180deg) translateY(-15px);
       }
       100% {
         transform: rotate(360deg) translateY(0px);
@@ -61,7 +61,7 @@
       color: #00ff00;
       font-size: 14px;
       height: auto;
-      min-height: 120px;
+      min-height: 140px;
       box-shadow: 0 0 10px #00ff00;
       white-space: pre-wrap;
       overflow: hidden;
@@ -91,41 +91,60 @@
   </div>
 
   <script>
-    // Floating Step Father texts
-    const createFloatingText = () => {
-      const count = 80;
+    // Words related to "Step Father"
+    const words = [
+      'Step Father',
+      'Crypto Daddy',
+      'Sugar Baby',
+      'Step Son',
+      'Ex-Wife',
+      'OnlyFans Manager',
+      'Meme Lord',
+      'Web3 Loser',
+      'Daddy Issues',
+      'Gas Fee Enthusiast',
+      'NFT Addict',
+      'Altcoin Clown'
+    ];
+
+    const createFloatingWords = () => {
+      const count = 100;
       for (let i = 0; i < count; i++) {
         const span = document.createElement('span');
-        span.classList.add('step-father');
-        span.innerText = 'Step Father';
+        span.classList.add('floating-word');
+        span.innerText = words[Math.floor(Math.random() * words.length)];
 
         const x = Math.random() * window.innerWidth;
         const y = Math.random() * window.innerHeight;
         const delay = Math.random() * 10;
-        const size = Math.random() * 10 + 8;
+        const size = Math.random() * 12 + 8;
 
         span.style.left = `${x}px`;
         span.style.top = `${y}px`;
         span.style.fontSize = `${size}px`;
-        span.style.animationDuration = `${6 + Math.random() * 6}s`;
+        span.style.animationDuration = `${5 + Math.random() * 7}s`;
         span.style.animationDelay = `-${delay}s`;
 
         document.body.appendChild(span);
       }
     };
 
-    createFloatingText();
+    createFloatingWords();
     window.addEventListener('resize', () => {
-      document.querySelectorAll('.step-father').forEach(e => e.remove());
-      createFloatingText();
+      document.querySelectorAll('.floating-word').forEach(e => e.remove());
+      createFloatingWords();
     });
 
-    // Terminal typing effect
+    // Vulgar/funny terminal lines
     const terminalLines = [
       '> Welcome to Step Father Coin...',
-      '> Preparing to launch...',
-      '> Your meme destiny begins now.',
-      '> Sugar daddies don\'t just pay... they pump.'
+      '> Slapping your wallet harder than your real dad.',
+      '> Deploying contracts your mom warned you about...',
+      '> Pumping faster than your ex\'s DMs after payday.',
+      '> Ain\'t no rug pull, just emotional damage.',
+      '> Mining memes & collecting regrets...',
+      '> Liquidity? Just vibes and broken promises.',
+      '> Remember: Buy the top, cry non-stop.'
     ];
 
     const terminalText = document.getElementById('terminal-text');
@@ -136,17 +155,17 @@
       if (line < terminalLines.length) {
         if (char < terminalLines[line].length) {
           terminalText.textContent += terminalLines[line][char++];
-          setTimeout(typeLine, 50);
+          setTimeout(typeLine, 40);
         } else {
           terminalText.textContent += '\n';
           line++;
           char = 0;
-          setTimeout(typeLine, 500);
+          setTimeout(typeLine, 600);
         }
       }
     }
 
-    setTimeout(typeLine, 1000);
+    setTimeout(typeLine, 800);
   </script>
 
 </body>
